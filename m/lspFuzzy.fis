@@ -1,0 +1,75 @@
+[System]
+Name='lspFuzzy'
+Type='mamdani'
+Version=2.0
+NumInputs=3
+NumOutputs=1
+NumRules=27
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='detav'
+Range=[0 1]
+NumMFs=3
+MF1='VS':'trapmf',[-0.5 -0.25 0.25 0.5]
+MF2='VM':'trimf',[0.25 0.5 0.75]
+MF3='VL':'trapmf',[0.5 0.75 1.25 1.5]
+
+[Input2]
+Name='detad'
+Range=[0 1]
+NumMFs=3
+MF1='DS':'trapmf',[-0.5 -0.25 0.25 0.5]
+MF2='DM':'trimf',[0.25 0.5 0.75]
+MF3='DL':'trapmf',[0.5 0.75 1.25 1.5]
+
+[Input3]
+Name='aven'
+Range=[0 1]
+NumMFs=3
+MF1='NS':'trapmf',[-0.5 -0.25 0.25 0.5]
+MF2='NM':'trimf',[0.25 0.5 0.75]
+MF3='NL':'trapmf',[0.5 0.75 1.25 1.5]
+
+[Output1]
+Name='stab'
+Range=[0 1]
+NumMFs=5
+MF1='Worse':'trimf',[-0.25 0 0.25]
+MF2='Bad':'trimf',[0 0.25 0.5]
+MF3='Medium':'trimf',[0.25 0.5 0.75]
+MF4='Good':'trimf',[0.5 0.75 1]
+MF5='Perfect':'trimf',[0.75 1 1.25]
+
+[Rules]
+1 1 3, 5 (1) : 1
+2 1 3, 4 (1) : 1
+3 1 3, 2 (1) : 1
+1 2 3, 4 (1) : 1
+2 2 3, 4 (1) : 1
+3 2 3, 2 (1) : 1
+1 3 3, 2 (1) : 1
+2 3 3, 2 (1) : 1
+3 3 3, 1 (1) : 1
+1 1 2, 4 (1) : 1
+2 1 2, 4 (1) : 1
+3 1 2, 3 (1) : 1
+1 2 2, 4 (1) : 1
+2 2 2, 3 (1) : 1
+3 2 2, 2 (1) : 1
+1 3 2, 3 (1) : 1
+2 3 2, 3 (1) : 1
+3 3 2, 1 (1) : 1
+1 1 1, 3 (1) : 1
+2 1 1, 2 (1) : 1
+3 1 1, 2 (1) : 1
+1 2 1, 3 (1) : 1
+2 2 1, 2 (1) : 1
+3 2 1, 1 (1) : 1
+1 3 1, 2 (1) : 1
+2 3 1, 1 (1) : 1
+3 3 1, 1 (1) : 1
